@@ -1,6 +1,6 @@
 {
   "name": "vue-froala-wysiwyg",
-  "version": "3.2.3",
+  "version": "2.9.3",
   "description": "Vue plugin for Froala WYSIWYG HTML rich text editor.",
   "author": "Froala Labs (https://www.froala.com/)",
   "license": "https://froala.com/wysiwyg-editor/terms/",
@@ -18,10 +18,12 @@
     "text",
     "editor",
     "wysisyg",
+    "jquery-plugin",
     "rich editor",
     "rich text editor",
     "rte",
-    "javascript"
+    "javascript",
+    "jquery"
   ],
   "main": "dist/vue-froala.js",
   "unpkg": "dist/vue-froala.min.js",
@@ -33,16 +35,16 @@
     "es"
   ],
   "scripts": {
-    "dev": "node build/dev-server.js",
     "build": "yarn run release && yarn run build:es",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
-    "release": "SET NODE_ENV=production && webpack --progress --hide-modules --config  ./build/webpack.release.js && webpack --progress --hide-modules --config  ./build/webpack.release.min.js",
-    "prepublish": "yarn run build"
+    "dev": "node build/dev-server.js",
+    "prepublish": "yarn run build",
+    "release": "webpack --progress --hide-modules --config  ./build/webpack.release.js && NODE_ENV=production webpack --progress --hide-modules --config  ./build/webpack.release.min.js"
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "@babel/runtime-corejs2": "^7.7.7",
-    "froala-editor": "^3.2.3",
+    "froala-editor": "^2.9.8",
     "vue": "2.6.6"
   },
   "devDependencies": {
